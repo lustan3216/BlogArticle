@@ -1,0 +1,46 @@
+@mixin flex{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+}
+@mixin justice_content ($_){
+  justify-content:$_ ;
+  -webkit-justify-content: $_;
+}
+@mixin align_items ($_){
+  align-items:$_ ;
+  -webkit-align-items: $_;
+}
+
+@mixin border_radius($px){
+  -webkit-border-radius:$px;
+  -moz-border-radius:$px;
+  border-radius:$px;
+}
+@mixin transition($_) {
+  -webkit-transition: $_;
+  -moz-transition: $_;
+  -o-transition: $_;
+}
+@mixin transition($_) {
+  -webkit-transition: $_;
+  -moz-transition: $_;
+  -o-transition: $_;
+}
+@mixin background_size_cover {
+  -webkit-background-size:cover;
+  background-size:cover;
+}
+@mixin background_size($_) {
+  -webkit-background-size:$_;
+  background-size:$_;
+}
+@mixin placeholder{
+  ::-webkit-input-placeholder {}
+  :-moz-placeholder { /* Firefox 18- */}
+  ::-moz-placeholder {  /* Firefox 19+ */}
+  :-ms-input-placeholder {    }
+}
