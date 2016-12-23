@@ -20,14 +20,13 @@
 //      使用時機 【 該區塊class很難取名 或是整塊區域只有單個元素需變動而不想再取class名字】
 //      適用於   【 喜歡 CSS 元件化 的工程師 】
 
-
 @mixin method_loop($media) {
   @each $method,$method_short in (margin,'m'),(padding,'p') {
     @each $direction,$direction_short in (right,'r'),(left,'l'),(top,'t'),(bottom,'b') {
-      @each $i in 0px,10px,15px,20px,30px,40px,50px {
-        .#{$method_short}#{$direction_short}#{$i}-#{$media} { #{$method}-#{$direction}: $i !important; }
+      @each $i_short,$i in (0,0px),(10,10px),(15,15px),(20,20px),(30,30px),(40,40px),(50,50px) {
+        .#{$method_short}#{$direction_short}#{$i_short}-#{$media} { #{$method}-#{$direction}: $i !important; }
         @if $media == 'xs'{
-          .#{$method_short}#{$direction_short}#{$i} { #{$method}-#{$direction}: $i !important; }
+          .#{$method_short}#{$direction_short}#{$i_short} { #{$method}-#{$direction}: $i !important; }
         }
       }
     }
