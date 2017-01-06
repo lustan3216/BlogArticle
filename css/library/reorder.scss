@@ -1,0 +1,33 @@
+.rotate_180{
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+@mixin reverse_column($_){
+  .row.reverse-#{$_}{
+    @extend .rotate_180;
+    direction: rtl;
+  }
+
+  .row.reverse-#{$_} > [class*="col-"]{
+    @extend .rotate_180;
+    direction: ltr;
+  }
+}
+@media (max-width: $screen-xs-max) {
+  @include reverse_column('xs');
+}
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  @include reverse_column('sm');
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  @include reverse_column('md');
+}
+
+@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+  @include reverse_column('lg');
+}

@@ -1,0 +1,263 @@
+.white{
+  color: #FFFFFF;
+}
+.red{
+  color: $main_red;
+}
+.black{
+  color: $main_black;
+}
+.gray{
+  color: #9B9B9B;
+}
+.orange{
+  color: #FF7663;
+}
+.lighter{
+  font-weight: lighter;
+}
+.normal{
+  font-weight: normal;
+}
+.background_red{
+  background-color: $main_red;
+}
+.background_white{
+  background-color: #FFFFFF;
+}
+.background_black{
+  background-color: #444444;
+}
+.border_red{
+  border: 1px solid $main_red ;
+}
+.border_black{
+  border:1px solid #444444;
+}
+.sub_link{
+  color: #003470;
+  text-decoration: underline;
+}
+.vertical_align{
+  vertical-align: middle;
+}
+.black_border_block{
+  @extend .border_black;
+  margin:15px 25px;
+  padding: 30px;
+}
+.l_line:before{
+  @extend .red;
+  content:'|';
+  font-size:16px;
+  margin: 0 15px;
+}
+.cursor_pointer{
+  cursor: pointer;
+}
+.background_img_setting{
+  @include background_size_cover;
+  background-position: center;
+}
+.border_main_radius{
+  @include border_radius($main_radius);
+}
+.border_sub_radius{
+  @include border_radius($sub_radius);
+}
+.border_circle{
+  @include border_radius(50%);
+}
+.border_none_radius{
+  @include border_radius(0px);
+}
+.fluid{
+  width: 100%;
+}
+.small_btn{
+  width: 84px;
+  height: 32px;
+}
+.square_icon {
+  @include square_icon;
+}
+.flex{
+  @include flex;
+}
+.flex_wrap{
+  @include flex_wrap(wrap);
+}
+.flex_space_around{
+  @include flex_(inherit,space-around);
+}
+.vertical_space_around{
+  @extend .flex;
+  @extend .flex_space_between;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.flex_space_between{
+  @include flex_(inherit,space-between);
+}
+.flex_center_start{
+  @include flex_(inherit,flex-start);
+}
+.flex_center{
+  @include flex_(center,center);
+}
+.flex_vertical_center{
+  @include flex_(center,inherit);
+}
+.bold{
+  font-weight: bold;
+}
+.red_line{
+  border-bottom: 1px solid $main_red;
+  width: 100%;
+  margin:15px auto;
+  display: block;
+}
+.gray{
+  color: #D4D5D6;
+}
+.gray_line{
+  border-bottom: 1px solid #D4D5D6;
+  width: 100%;
+  margin:15px auto;
+  display: block;
+}
+.absolute_center{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.btn_setting{
+  @extend .border_sub_radius;
+  @extend .tac;
+  @extend .cursor_pointer;
+  display: inline-block;
+  font-weight: inherit;
+  font-size:1em;
+  padding: 0 15px;
+  line-height: 40px;
+  min-width: 100px;
+  height: 40px;
+}
+.ui.button.my_btn,.my_btn{
+  @extend .background_red;
+  @extend .white;
+  @extend .border_red;
+  @extend .btn_setting;
+}
+.ui.button.my_btn_reserve,.my_btn_reserve{
+  @extend .background_white;
+  @extend .red;
+  @extend .border_red;
+  @extend .btn_setting;
+}
+.my_black_btn{
+  @extend .background_black;
+  @extend .white;
+  @extend .border_black;
+  @extend .btn_setting;
+}
+.my_black_btn_reserve{
+  @extend .border_black;
+  @extend .background_white;
+  @extend .black;
+  @extend .btn_setting;
+}
+.four_btn{
+  @extend .df;
+  [class*=_btn],[class*=_btn_reserve]{
+    @include calc(width,'100% / 4');
+    margin: 5px;
+    i{
+      font-size: 40px;
+    }
+    p{
+      line-height: 10px;
+      margin: 0;
+    }
+  }
+}
+//----------------load more -----------------
+//<div class="load_moer">
+//<input type="button" value="Load more">
+//</div>
+
+.load_more {
+  display: block;
+  text-align: center;
+  input {
+    @extend .background_red;
+    @extend .white;
+    @extend .border_sub_radius;
+    @extend .border_red;
+    font-weight: inherit;
+    font-size: 1em;
+    width: 175px;
+    height: 40px;
+  }
+}
+.square_img{
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  @extend .background_img_setting;
+  img{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+@mixin align_two_side{
+  &:after,&:before{
+    content:' ';
+    display: table;
+  }
+  &:after{
+    clear: both;
+  }
+  &>:first-child{
+    float: left;
+  }
+  &>:last-child{
+    float: right;
+  }
+}
+.align_two_side{
+  @include align_two_side;
+}
+.align_two_side_sm{
+  @include align_two_side;
+}
+@media (max-width: $screen-xs-max ){
+  [class*=basic_bg]{
+    .four_btn{
+      @include calc(width,'100% + 10px');
+      margin-left: -5px;
+      padding: 0;
+      [class*=_btn],[class*=_btn_reserve]{
+        margin: 0;
+        border-right: none;
+      }
+    }
+  }
+  .align_two_side_sm{
+    & > :last-child,& > :first-child{
+      float: inherit;
+      display: block;
+    }
+  }
+  .black_border_block{
+    margin: -1px 0 0 -20px;
+    @include calc(width,'100% + 40px');
+  }
+}

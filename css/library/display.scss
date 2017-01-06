@@ -1,0 +1,43 @@
+@mixin flex{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+}
+
+@mixin method_loop($media) {
+  //display
+  @each $method,$method_short in (block,'b'),(inline-block,'ib'),(inline,'i'),(inherit,'n') {
+    .d#{$method_short}-#{$media} { display: $method; }
+  }
+}
+@mixin method_loop_f($media) {
+  //display
+  .df-#{$media} { @include flex;}
+}
+@mixin method_loop_f_no_media($media) {
+  //display
+  .df-#{$media} { @include flex; }
+}
+
+@include method_loop('xs');
+@include method_loop_f('xs');
+@include method_loop_f_no_media('xs');
+
+@media (min-width: $screen-sm-min) {
+  @include method_loop('sm');
+  @include method_loop_f('sm');
+  @include method_loop_f_no_media('sm');
+}
+
+@media (min-width: $screen-md-min) {
+  @include method_loop('md');
+  @include method_loop_f('md');
+  @include method_loop_f_no_media('md');
+}
+
+@media (min-width: $screen-lg-min) {
+  @include method_loop('lg');
+  @include method_loop_f('lg');
+  @include method_loop_f_no_media('lg');
+}

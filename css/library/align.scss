@@ -1,0 +1,24 @@
+@mixin method_loop($media) {
+  // text-align
+  @each $direction,$direction_short in (right,'r'),(left,'l'),(center,'c'),(inherit,'n') {
+    .ta#{$direction_short}-#{$media} { text-align:$direction;}
+  }
+  // float
+  @each $direction,$direction_short in (right,'r'),(left,'l'),(inherit,'n') {
+    .fl#{$direction_short}-#{$media} { float:$direction; }
+  }
+}
+
+@include method_loop('xs');
+
+@media (min-width: $screen-sm-min) {
+  @include method_loop('sm');
+}
+
+@media (min-width: $screen-md-min) {
+  @include method_loop('md');
+}
+
+@media (min-width: $screen-lg-min) {
+  @include method_loop('lg');
+}

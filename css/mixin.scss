@@ -1,46 +1,94 @@
+@mixin justice-content ($_){
+  justify-content:$_ ;
+  -webkit-justify-content: $_;
+}
+@mixin align-items ($_){
+  align-items:$_ ;
+  -webkit-align-items: $_;
+}
+
+@mixin border-radius($_){
+  -webkit-border-radius:$_;
+  -moz-border-radius:$_;
+  border-radius:$_;
+}
+@mixin border-radius-($_, $__ ,$___){
+  border-#{$_}-#{$__}-radius: #{$___};
+  -webkit-border-#{$_}-#{$__}-radius: #{$___};
+  -moz-border-radius-#{$_}#{$__}: #{$___};
+}
+@mixin transition($_) {
+  -webkit-transition: $_ ;
+  -moz-transition: $_ ;
+  -ms-transition: $_ ;
+  -o-transition: $_ ;
+  transition: $_ ;
+}
+
+@mixin background-size-cover {
+  -webkit-background-size:cover;
+  background-size:cover;
+}
+@mixin background-size($_) {
+  -webkit-background-size:$_;
+  background-size:$_;
+}
+@mixin square_icon($pixel: 40px){
+  font-size:$pixel / 2;
+  color: $main_red;
+  background-color: #FFFFFF;
+  border-radius: $main_radius;
+  height: $pixel;
+  line-height: $pixel;
+  width: $pixel;
+  text-align: center;
+}
 @mixin flex{
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-
 }
-@mixin justice_content ($_){
-  justify-content:$_ ;
-  -webkit-justify-content: $_;
+@mixin flex_($vertical,$horizon){
+  @include flex;
+  -webkit-justify-content: $horizon;
+  justify-content: $horizon;
+  -webkit-align-items: $vertical;
+  align-items: $vertical;
 }
-@mixin align_items ($_){
-  align-items:$_ ;
-  -webkit-align-items: $_;
+@mixin calc($_,$__){
+  #{$_}:-moz-calc(#{$__});
+  #{$_}:-webkit-calc(#{$__});
+  #{$_}:calc(#{$__});
 }
-
-@mixin border_radius($px){
-  -webkit-border-radius:$px;
-  -moz-border-radius:$px;
-  border-radius:$px;
+@mixin flex_wrap($_){
+  @include flex;
+  flex-wrap: $_;
+  -webkit-flex-wrap: $_;
+  -ms-flex-wrap: $_;
 }
-@mixin transition($_) {
-  -webkit-transition: $_;
-  -moz-transition: $_;
-  -o-transition: $_;
+@mixin basic_bg($top,$bottom){
+  border-top-left-radius: $top;
+  border-top-right-radius: $top;
+  border-bottom-right-radius: $bottom;
+  border-bottom-left-radius: $bottom;
+  background-color: #FFFFFF;
+  margin-bottom: 30px;
+  width: 100%;
+  padding:30px;
 }
-@mixin transition($_) {
-  -webkit-transition: $_;
-  -moz-transition: $_;
-  -o-transition: $_;
-}
-@mixin background_size_cover {
-  -webkit-background-size:cover;
-  background-size:cover;
-}
-@mixin background_size($_) {
-  -webkit-background-size:$_;
-  background-size:$_;
-}
-@mixin placeholder{
-  ::-webkit-input-placeholder {}
-  :-moz-placeholder { /* Firefox 18- */}
-  ::-moz-placeholder {  /* Firefox 19+ */}
-  :-ms-input-placeholder {    }
+@mixin text_overflow($font-size,$line-height){
+  font-size: $font-size;
+  line-height: $line-height;
+  $lines-to-show: 3;
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box;
+  height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+  margin: 0 auto;
+  font-size: $font-size;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -1,0 +1,36 @@
+.icon_setting{
+  @include background_size_cover;
+  background-position: center;
+  display: inline-block;
+  margin-right: 5px;
+  font-size:inherit;
+}
+@mixin share_icon($color){
+  background-image:url('data:image/svg+xml;utf8,<svg width="22px" height="19px" viewBox="0 0 22 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>share icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-648.000000, -1540.000000)" fill="#{$color}">
+            <g id="you-may-also-want" transform="translate(62.000000, 1158.000000)">
+                <g id="icon" transform="translate(541.000000, 382.000000)">
+                    <g id="share-icon" transform="translate(45.039080, 0.000000)">
+                        <polygon id="Fill-1" points="0 0.600658388 0 18.5017104 17.6575488 18.5017104 17.6575488 11.7137276 16.2354643 11.7137276 16.2354643 17.060015 1.42208446 17.060015 1.42208446 2.04235386 11.3766757 2.04235386 11.3766757 0.600658388"></polygon>
+                        <path d="M21.0349994,4.14487447 L14.7541263,0 L14.7541263,2.20194954 C12.4489274,2.97109408 5.84429312,6.0546404 7.16967584,15.8586501 C7.16967584,15.8586501 8.58322779,7.70634284 14.7541263,7.07175655 L14.7541263,9.13073796 L21.0349994,4.14487447 Z" id="Fill-2"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>');
+  @extend .icon_setting;
+  width: 1em;
+  height: 0.9em;
+  margin-bottom: -3px;
+}
+.share_icon_white{
+  @include share_icon(white);
+}
+.share_icon_red{
+  @include share_icon($main_red);
+}

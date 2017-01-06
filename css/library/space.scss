@@ -1,0 +1,92 @@
+//     用法解釋   *表示數字 數字可以是 0px,10px,15px,20px~~100px
+//     以上數字為最常用的數字 要增加自己家在下面
+//     -------------------------------------------------------
+//             xs(320up) | sm(768up) | md(992up) | lg(1200up)
+//     -------------------------------------------------------
+//     mt*-xs     Yes    |    Yes    |    Yes    |    Yes
+//     mt*        Yes    |    Yes    |    Yes    |    Yes
+//     -------------------------------------------------------
+//     mt*-sm     No     |    Yes    |    Yes    |    Yes
+//     -------------------------------------------------------
+//     mt*-md     No     |    No     |    Yes    |    Yes
+//     -------------------------------------------------------
+//     mt*-lg     No     |    No     |    No     |    Yes
+//     -------------------------------------------------------
+//      Yes 表示有作用的區域 No表示沒作用的區域
+//
+//      使用方式 【 直接對該class上 mb20-sm 這樣就只會在sm media以上作用magin-bottom 20px 】
+//              【 pl50-md 這樣就只會在md media以上作用padding-left 50px 】
+//
+//      使用時機 【 該區塊class很難取名 或是整塊區域只有單個元素需變動而不想再取class名字】
+//      適用於   【 喜歡 CSS 元件化 的工程師 】
+
+@mixin method_loop_two_way($media) {
+  @each $method,$method_short in (margin,'m'),(padding,'p') {
+    @for $i from 0 through 200 {
+      @each $direction,$direction2,$direction_short,$direction2_short in (right,left,'r','l'),(top,bottom,'t','b') {
+        @if $i % 5 == 0 {
+          .#{$method_short}#{$direction_short}#{$direction2_short}#{$i}-#{$media} { #{$method}-#{$direction}: #{$i}px !important;#{$method}-#{$direction2}: #{$i}px !important; }
+          @if $media == 'xs'{
+            .#{$method_short}#{$direction_short}#{$direction2_short}#{$i} { #{$method}-#{$direction}: #{$i}px !important;#{$method}-#{$direction2}: #{$i}px !important; }
+          }
+          @if $i == 0{
+            .#{$method_short}#{$direction_short}#{$direction2_short}a-#{$media} { #{$method}-#{$direction}: auto !important;#{$method}-#{$direction2}: auto !important; }
+            @if $media == 'xs'{
+              .#{$method_short}#{$direction_short}#{$direction2_short}a { #{$method}-#{$direction}: auto !important;#{$method}-#{$direction2}: auto !important; }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@mixin method_loop_full($media) {
+  @each $method,$method_short in (margin,'m'),(padding,'p') {
+    @for $i from 0 through 200 {
+      @if $i % 5 == 0 {
+        .#{$method_short}#{$i}-#{$media} { #{$method}: #{$i}px !important; }
+        @if $media == 'xs'{
+          .#{$method_short}#{$i} { #{$method}: #{$i}px !important; }
+        }
+      }
+    }
+  }
+}
+@mixin method_loop($media) {
+  @each $method,$method_short in (margin,'m'),(padding,'p') {
+    @for $i from 0 through 200 {
+      @each $direction,$direction_short in (right,'r'),(left,'l'),(top,'t'),(bottom,'b') {
+        @if $i % 5 == 0 {
+          .#{$method_short}#{$direction_short}#{$i}-#{$media} { #{$method}-#{$direction}: #{$i}px !important; }
+          @if $media == 'xs'{
+            .#{$method_short}#{$direction_short}#{$i} { #{$method}-#{$direction}: #{$i}px !important; }
+          }
+          @if $i == 0{
+            .#{$method_short}#{$direction_short}n-#{$media} { #{$method}-#{$direction}: inherit !important; }
+          }
+        }
+      }
+    }
+  }
+}
+@include method_loop('xs');
+@include method_loop_full('xs');
+@include method_loop_two_way('xs');
+
+@media (min-width: $screen-sm-min) {
+  @include method_loop('sm');
+  @include method_loop_full('sm');
+  @include method_loop_two_way('sm');
+}
+
+@media (min-width: $screen-md-min) {
+  @include method_loop('md');
+  @include method_loop_full('md');
+  @include method_loop_two_way('md');
+}
+
+@media (min-width: $screen-lg-min) {
+  @include method_loop('lg');
+  @include method_loop_full('lg');
+  @include method_loop_two_way('lg');
+}
