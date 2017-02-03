@@ -9,17 +9,29 @@
   margin-top: 5px;
   letter-spacing: 5px;
 }
+.show_rated_0::before{
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
 .show_rated_0_5::before{
   content: "\f123 \f006 \f006 \f006 \f006";
 }
 .show_rated_1::before{
   content: "\f005 \f006 \f006 \f006 \f006";
 }
+.show_rated_1_5::before{
+  content: "\f005 \f123 \f006 \f006 \f006";
+}
 .show_rated_2::before{
   content: "\f005 \f005 \f006 \f006 \f006";
 }
+.show_rated_2_5::before{
+  content: "\f005 \f005 \f123 \f006 \f006";
+}
 .show_rated_3::before{
   content: "\f005 \f005 \f005 \f006 \f006";
+}
+.show_rated_3_5::before{
+  content: "\f005 \f005 \f005 \f123 \f006";
 }
 .show_rated_4::before{
   content: "\f005 \f005 \f005 \f005 \f006";
