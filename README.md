@@ -1,8 +1,10 @@
 此處是我的人生小筆記
 不記下來全部忘光光
-####[我製作的神器Library](https://github.com/lustan3216/Behavior-Bind-Media)
+
+* 神器專區
+    * [嚇死你的RubyMine怎麼帶我向上飛](https://github.com/lustan3216/Behavior-Bind-Media)
 * CSS
-    
+    * [私人手工製作的Library](https://github.com/lustan3216/Behavior-Bind-Media)
     * [CSS 文字溢出](https://github.com/lustan3216/BlogArticle/wiki/CSS-%E6%96%87%E5%AD%97%E6%BA%A2%E5%87%BA)
     * [RWD replace pull push trick](https://github.com/lustan3216/BlogArticle/wiki/RWD-replace-pull-push-trick)
     * [Display rated star by Font Awesome Scss](https://github.com/lustan3216/BlogArticle/wiki/Display-rated-star-by-Font-Awesome-scss)
