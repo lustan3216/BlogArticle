@@ -37,3 +37,6 @@
 
 * Commend line
     * [Commend有時用到 指令 祕技](https://github.com/lustan3216/BlogArticle/wiki/Commend%E6%9C%89%E6%99%82%E7%94%A8%E5%88%B0-%E6%8C%87%E4%BB%A4-%E7%A5%95%E6%8A%80)
+
+* 密碼學
+    * [BCrypt 加密演算法精闢解釋](https://github.com/lustan3216/BlogArticle/wiki/BCrypt-%E5%8A%A0%E5%AF%86%E6%BC%94%E7%AE%97%E6%B3%95%E7%B2%BE%E9%97%A2%E8%A7%A3%E9%87%8B)
