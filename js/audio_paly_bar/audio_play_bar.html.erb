@@ -1,0 +1,252 @@
+<div class="row audio_bar">
+  <div class="col-xs-12">
+      <span style="border-right: 1px solid white;">
+        <div id="pButton" class="play"></div>
+      </span>
+    <% if @post.audio.present? %>
+    <audio preload="auto" controls style="display: none;" id="audio">
+      <source src="<%= @post.audio.url %>" type="audio/ogg">
+      你的瀏覽器不支援播放格式
+    </audio>
+    <% end %>
+    <div class="time_bar" id="time_bar">
+      <div id="playbar"></div>
+      <div id="playhead"></div>
+    </div>
+    <span id="current_time"></span>
+    <div style="display: inline-block; float: right;">
+      <a href="https://www.google.com" class="app_link">開啟App</a>
+    </div>
+  </div>
+</div>
+
+
+<!--//= require jquery-ui-->
+<!--//= require ui-touch-->
+<script>
+  $('audio')[0].oncanplaythrough = function(){
+    $('#current_time').html(display_time($('audio')[0].duration))
+  }
+
+  $('audio').on('timeupdate', function() {
+    var s = this.duration-this.currentTime
+
+    $('#current_time').html(display_time(s))
+//      $('#running_bar').attr("style", 'width:'+((this.currentTime / this.duration)*100) + '%');
+    $('#running_bar').val(((this.currentTime / this.duration)*100));
+  });
+
+  function display_time(s){
+    var date = new Date(null);
+    date.setSeconds(s);
+    if (s > 3600){
+      var result = date.toISOString().substr(11, 8);
+    }else {
+      var result = date.toISOString().substr(14, 5);
+    }
+    return "- " + result
+  }
+
+
+
+  var music = document.getElementById('audio'); // id for audio element
+  var duration = music.duration; // Duration of audio clip, calculated here for embedding purposes
+  var pButton = document.getElementById('pButton'); // play button
+  var playbar = document.getElementById('playbar');
+  var playhead = document.getElementById('playhead'); // playhead
+  var timeline = document.getElementById('time_bar'); // timeline
+
+  // timeline width adjusted for playhead
+  var timelineWidth = timeline.offsetWidth;
+
+  // play button event listenter
+  pButton.addEventListener("click", play);
+
+  // timeupdate event listener
+  music.addEventListener("timeupdate", timeUpdate, false);
+
+  // makes timeline clickable
+  timeline.addEventListener("click", function(event) {
+    moveplayhead(event);
+    music.currentTime = duration * clickPercent(event);
+  }, false);
+
+  // returns click as decimal (.77) of the total timelineWidth
+  function clickPercent(event) {
+    return (event.clientX - getPosition(timeline)) / timelineWidth;
+  }
+
+  // makes playhead draggable
+  playhead.addEventListener('mousedown', mouseDown, false);
+  window.addEventListener('mouseup', mouseUp, false);
+
+  // Boolean value so that audio position is updated only when the playhead is released
+  var onplayhead = false;
+
+  // mouseDown EventListener
+  function mouseDown() {
+    onplayhead = true;
+    window.addEventListener('mousemove', moveplayhead, true);
+    music.removeEventListener('timeupdate', timeUpdate, false);
+  }
+
+  // mouseUp EventListener
+  // getting input from all mouse clicks
+  function mouseUp(event) {
+    if (onplayhead == true) {
+      moveplayhead(event);
+      window.removeEventListener('mousemove', moveplayhead, true);
+      // change current time
+      music.currentTime = duration * clickPercent(event);
+      music.addEventListener('timeupdate', timeUpdate, false);
+    }
+    onplayhead = false;
+  }
+  // mousemove EventListener
+  // Moves playhead as user drags
+  function moveplayhead(event) {
+    var newMargLeft = event.clientX - getPosition(timeline);
+
+    if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
+      playhead.style.marginLeft = newMargLeft + "px";
+      playbar.style.width = newMargLeft + "px";
+    }
+    if (newMargLeft < 0) {
+      playhead.style.marginLeft = "0px";
+      playbar.style.width = "0px";
+    }
+    if (newMargLeft > timelineWidth) {
+      playhead.style.marginLeft = timelineWidth + "px";
+      playbar.style.width = timelineWidth + "px";
+    }
+  }
+
+  // timeUpdate
+  // Synchronizes playhead position with current point in audio
+  function timeUpdate() {
+    var playPercent = timelineWidth * (music.currentTime / duration);
+    playhead.style.marginLeft = playPercent + "px";
+    playbar.style.width = playPercent + "px";
+    if (music.currentTime == duration) {
+      pButton.className = "";
+      pButton.className = "play";
+    }
+  }
+
+  //Play and Pause
+  function play() {
+    // start music
+    if (music.paused) {
+      music.play();
+      // remove play, add pause
+      pButton.className = "";
+      pButton.className = "pause";
+    } else { // pause music
+      music.pause();
+      // remove pause, add play
+      pButton.className = "";
+      pButton.className = "play";
+    }
+  }
+
+  // Gets audio file duration
+  music.addEventListener("canplaythrough", function() {
+    duration = music.duration;
+  }, false);
+
+  // getPosition
+  // Returns elements left position relative to top-left of viewport
+  function getPosition(el) {
+    return el.getBoundingClientRect().left;
+  }
+</script>
+
+<style>
+  .audio_bar{
+    position: absolute;
+    bottom:0;
+    right: 0;
+    left: 0;
+    height: 44px;
+    background-color: #505050;
+    font-size: 16px;
+    line-height: 44px;
+  #pButton{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 15px;
+    margin-right: 7px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    padding: 11px 0;
+    margin-bottom: -8px;
+    -webkit-background-size:18px;
+    background-size:18px;
+  }
+  .play{
+    background: image-url('player_icon/play.png') ;
+  }
+  .pause{
+    background: image-url('player_icon/pause.png') ;
+  }
+  }
+  .app_link{
+    color: #FFFFFF;
+    border: 1px solid white;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    height: 30px;
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 5px;
+    margin-right: 15px;
+    margin-left: 10px;
+    font-size: 12px;
+  }
+  .time_bar{
+    height: 4px;
+    background-color: #D8D8D8;
+    display: inline-block;
+    height: -moz-calc(100% - 220px);
+    height: -webkit-calc(100% - 220px);
+    width: calc(100% - 220px);
+    margin-bottom: 3px;
+    margin-left: 10px;
+    position: relative;
+  #running_bar{
+    height: 5px;
+    content:' ';
+    display: block;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    width: 100%;
+    transition: all 0.5s ease;
+  }
+  }
+  #playbar{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db3d3+0,ea583f+100 */
+    background: #7db3d3; /* Old browsers */
+    background: -moz-linear-gradient(left,  #7db3d3 0%, #ea583f 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #7db3d3 0%,#ea583f 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #7db3d3 0%,#ea583f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db3d3', endColorstr='#ea583f',GradientType=1 ); /* IE6-9 */
+    width: 0;
+    height: 100%;
+    top: 0;
+  }
+  #playhead{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: -25px;
+    background: rgba(0, 0, 0, 0.0);
+    cursor: pointer;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+</style>
