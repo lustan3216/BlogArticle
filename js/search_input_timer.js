@@ -1,3 +1,4 @@
+//清除當下的timer
 var delayTimer;
 
 clearTimeout(delayTimer);
@@ -16,3 +17,14 @@ delayTimer = setTimeout(function() {
     }
   })
 }, 1000);
+
+
+// 清除所有的timer
+var timers = [];
+// add a timer to the array
+timers.push(setTimeout(someFunc, 1000));
+// clear all timers in the array
+for (var i = 0; i < timers.length; i++)
+{
+  clearTimeout(timers[i]);
+}
