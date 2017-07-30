@@ -21,7 +21,7 @@
 
 * Ruby
     * [Ruby 讀書心得整理](https://github.com/lustan3216/BlogArticle/wiki/Ruby-%E8%AE%80%E6%9B%B8%E5%BF%83%E5%BE%97%E6%95%B4%E7%90%86)
-    * [Parperclip exif wrong orientation from mobile upload](https://github.com/lustan3216/BlogArticle/wiki/Parperclip-exif-orientation-wrong-way-from-mobile-upload)
+    * [Parperclip exif wrong orientation from mobile upload](https://github.com/lustan3216/BlogArticle/wiki/Parperclip-exif-wrong-orientation-from-mobile-upload)
     * [超輕量化Rails model](https://github.com/lustan3216/BlogArticle/blob/master/ruby/plan_model.rb)
     * [Http code json render](https://github.com/lustan3216/BlogArticle/blob/master/ruby/http_code_render_and_serialize.rb)
 
