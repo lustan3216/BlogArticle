@@ -32,7 +32,7 @@
 * Server
     * [設定SSL Https & HSTS](https://github.com/lustan3216/BlogArticle/wiki/%E8%A8%AD%E5%AE%9ASSL-Https-&-HSTS)
     * [Nginx site-enable yml 設定](https://github.com/lustan3216/BlogArticle/blob/master/server/nginx_site_enable_yml.md)
-    * [Azure face-detection Api中文解釋](https://github.com/lustan3216/BlogArticle/blob/master/server/azure_face_detection.md)
+    * [Azure face-detection Api中文解釋](https://github.com/lustan3216/BlogArticle/wiki/Azure-face-detection-Api%E4%B8%AD%E6%96%87%E8%A7%A3%E9%87%8B)
 
 * JQuery/JS
     * [前端好用 套件](https://github.com/lustan3216/BlogArticle/wiki/%E5%89%8D%E7%AB%AF%E5%A5%BD%E7%94%A8-%E5%A5%97%E4%BB%B6)
