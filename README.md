@@ -44,7 +44,7 @@
     * [clear hover on mobile](https://github.com/lustan3216/BlogArticle/blob/master/js/clear_hover.md)
     * [js debug code, its can display block leyout random color](https://github.com/lustan3216/BlogArticle/blob/master/js/css_block_debug.md)
     * [search timer and clean/clean all timer](https://github.com/lustan3216/BlogArticle/blob/master/js/search_input_timer.js)
-    * [Show image when upload](https://github.com/lustan3216/BlogArticle/blob/master/jquery/parperclip_show_immediate.md)
+    * [Show image when upload](https://github.com/lustan3216/BlogArticle/blob/master/jquery/image_show_immediate.md)
 
 * Commend line
     * [Commend有時用到 指令 祕技](https://github.com/lustan3216/BlogArticle/wiki/Commend%E6%9C%89%E6%99%82%E7%94%A8%E5%88%B0-%E6%8C%87%E4%BB%A4-%E7%A5%95%E6%8A%80)
