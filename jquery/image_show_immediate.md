@@ -1,4 +1,4 @@
-**Show pic immediately with parperclip upload**
+**Show pic immediately with image upload**
 
 _is trick not even upload yet skill!_
 
