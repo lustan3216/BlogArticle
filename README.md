@@ -33,6 +33,8 @@
     * [設定SSL Https & HSTS](https://github.com/lustan3216/BlogArticle/wiki/%E8%A8%AD%E5%AE%9ASSL-Https-&-HSTS)
     * [Nginx site-enable yml 設定](https://github.com/lustan3216/BlogArticle/blob/master/server/nginx_site_enable_yml.md)
     * [Azure face-detection Api中文解釋](https://github.com/lustan3216/BlogArticle/wiki/Azure-face-detection-Api%E4%B8%AD%E6%96%87%E8%A7%A3%E9%87%8B)
+    * [Elasticsearch 一定會撞的坑](https://github.com/lustan3216/BlogArticle/blob/master/server/elasticsearch.md)
+    * [ELK 設定檔](https://github.com/lustan3216/BlogArticle/blob/master/server/elk_config_settings.md)
 
 * JQuery/JS
     * [前端好用 套件](https://github.com/lustan3216/BlogArticle/wiki/%E5%89%8D%E7%AB%AF%E5%A5%BD%E7%94%A8-%E5%A5%97%E4%BB%B6)
@@ -45,9 +47,13 @@
     * [js debug code, its can display block leyout random color](https://github.com/lustan3216/BlogArticle/blob/master/js/css_block_debug.md)
     * [search timer and clean/clean all timer](https://github.com/lustan3216/BlogArticle/blob/master/js/search_input_timer.js)
     * [Show image when upload](https://github.com/lustan3216/BlogArticle/blob/master/jquery/image_show_immediate.md)
+    * [Simple Time prototype](https://github.com/lustan3216/BlogArticle/blob/master/js/timer.js)
+    * [Act like super function](https://github.com/lustan3216/BlogArticle/blob/master/js/like_super.js)
+    * [Act like watch function](https://github.com/lustan3216/BlogArticle/blob/master/js/watch.js)
 
 * Commend line
     * [Commend有時用到 指令 祕技](https://github.com/lustan3216/BlogArticle/wiki/Commend%E6%9C%89%E6%99%82%E7%94%A8%E5%88%B0-%E6%8C%87%E4%BB%A4-%E7%A5%95%E6%8A%80)
 
 * 密碼學
+    * [仿造簡易Pem key步驟](https://github.com/lustan3216/BlogArticle/blob/master/server/encrypt_like_pem.md)
     * [BCrypt 加密演算法精闢解釋](https://github.com/lustan3216/BlogArticle/wiki/BCrypt-%E5%8A%A0%E5%AF%86%E6%BC%94%E7%AE%97%E6%B3%95%E7%B2%BE%E9%97%A2%E8%A7%A3%E9%87%8B)
