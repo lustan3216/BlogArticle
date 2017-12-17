@@ -2,6 +2,7 @@
 不記下來全部忘光光
 
 * 用心好文專區
+    * [You are not a Sidekiq professional if you don’t know these tricks](https://medium.com/@et3216/9-ways-to-boost-sidekiq-performance-correctly-in-practical-experiences-bfebe9ee0f28)
     * [嚇死你的RubyMine怎麼帶我向上飛 分享它如何解省我的時間升生產力](https://medium.com/@et3216/rubymine-%E5%B8%B6%E6%88%91%E5%90%91%E4%B8%8A%E9%A3%9B-8478c30af49c#.909qxa3cc)
     * [私人手工製作的Library 內含可彈性的控制RWD的Library、大量省Code的觀念](https://github.com/lustan3216/Behavior-Bind-Media)
 
